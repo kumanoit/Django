@@ -8,11 +8,8 @@ def product_view(request, *args, **kwargs):
 
 def product_detail_view(request):
     product = Product.objects.get(id = 1)
-    print(product)
     context = {
-        'title': product.title,
-        'description': product.description,
-        'price': product.price
+        'product': product
     }
     return render(request, "products/product_detail.html", context)
 
