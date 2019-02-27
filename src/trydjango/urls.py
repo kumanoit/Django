@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from products.views import product_view, product_new_view, product_detail_view, product_creation_form
-from products.views import product_creation_html_form
+from products.views import product_creation_html_form, product_creation_raw_django_form
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +26,5 @@ urlpatterns = [
     path('new_product/', product_new_view, name="product_new_home"),
     path('create_product/', product_creation_form, name="product_creation_form"),
     path('create_product_html_form/', product_creation_html_form, name="product_creation_html_form"),
+    path('create_product_raw_form/', product_creation_raw_django_form, name="product_creation_raw_django_form")
 ]

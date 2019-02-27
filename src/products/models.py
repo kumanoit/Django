@@ -1,5 +1,6 @@
 from django.db import models
 # Create your models here.
+from django import forms
 
 class Product(models.Model):
     title = models.TextField()
@@ -11,3 +12,8 @@ class Product(models.Model):
 
     def __str__(self):
         return str(self.title)
+
+class RawProductForm(forms.Form):
+    title = forms.CharField()
+    description = forms.CharField()
+    price = forms.DecimalField()
