@@ -46,11 +46,12 @@ def product_creation_html_form(request):
 def product_creation_raw_django_form(request):
     if request.method == "POST":
         form = RawProductForm(request.POST)
-        Product.objects.create(
-            title=request.POST.get("title"),
-            description=request.POST.get("description"),
-            price=request.POST.get("price")
-        )
+        if form.is_valid():
+            Product.objects.create(
+                **form.cleaned_data
+            )
+        else:
+            print(form.errors)
     form = RawProductForm(request.GET)
     context = {
         'form' : form
