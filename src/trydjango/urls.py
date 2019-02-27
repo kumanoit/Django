@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', product_list_view, name="product_home"),
     path('product_detail', product_detail_view, name="product_detail"),
-    path('product_detail/<product_id>/', get_product_details, name="product_detail"),
+    path('products/<product_id>/', get_product_details, name="product_detail"),
     path('new_product/', product_new_view, name="product_new_home"),
     path('create_product/', product_creation_form, name="product_creation_form"),
     path('create_product_html_form/', product_creation_html_form, name="product_creation_html_form"),
