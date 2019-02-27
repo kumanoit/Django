@@ -3,7 +3,7 @@
 {% block content %}
 
 {% for product in product_list %}
-<p>{{product.id}} - <a href="/products/{{product.id}}/" >{{product.title}}</a>, {{product.description}}, {{product.price}}</p>
+<p>{{product.id}} - <a href="{{ product.get_absolute_url }}" >{{product.title}}</a>, {{product.description}}, {{product.price}}</p>
 {% endfor %}
 
 {% endblock %}
