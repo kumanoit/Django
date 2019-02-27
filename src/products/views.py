@@ -70,3 +70,10 @@ def product_creation_initial_form(request):
         'form' : form
     }
     return render(request, "products/create_product_initial_data.html", context)
+
+def get_product_details(request, product_id):
+    object = Product.objects.get(id = product_id)
+    context = {
+        "product": object
+    }
+    return render(request, "products/product_detail.html", context)
