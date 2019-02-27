@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.http import Http404
+from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 from .models import Product
@@ -72,7 +73,10 @@ def product_creation_initial_form(request):
     return render(request, "products/create_product_initial_data.html", context)
 
 def get_product_details(request, product_id):
-    object = get_object_or_404(Product, id = product_id)
+    try:
+        object = Product.objects.get(id=product_id)
+    except Product.DoesNotExist:
+        raise Http404
     context = {
         "product": object
     }
