@@ -16,14 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from products.views import product_view, product_new_view, product_detail_view, product_creation_form
+from products.views import product_list_view, product_new_view, product_detail_view, product_creation_form
 from products.views import product_creation_html_form, product_creation_raw_django_form
 from products.views import product_creation_initial_form, get_product_details
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('product/', product_view, name="product_home"),
+    path('products/', product_list_view, name="product_home"),
     path('product_detail', product_detail_view, name="product_detail"),
     path('product_detail/<product_id>/', get_product_details, name="product_detail"),
     path('new_product/', product_new_view, name="product_new_home"),

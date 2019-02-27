@@ -6,9 +6,6 @@ from .models import Product
 
 from .forms import ProductForm, RawProductForm
 
-def product_view(request, *args, **kwargs):
-    return HttpResponse("<h1>Product View</h1>")
-
 def product_detail_view(request):
     product = Product.objects.get(id = 1)
     context = {
@@ -81,3 +78,11 @@ def get_product_details(request, product_id):
         "product": object
     }
     return render(request, "products/product_detail.html", context)
+
+## to return list of products
+def product_list_view(request):
+    queryset = Product.objects.all()
+    context = {
+        "product_list": queryset
+    }
+    return render(request, "products/product_list.html", context)
