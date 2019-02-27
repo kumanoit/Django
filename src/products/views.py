@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-from .models import Product, RawProductForm
+from .models import Product
 
-from .forms import ProductForm
+from .forms import ProductForm, RawProductForm
 
 def product_view(request, *args, **kwargs):
     return HttpResponse("<h1>Product View</h1>")
