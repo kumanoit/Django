@@ -9,6 +9,6 @@ def product_new_view(request, *args, **kwargs):
     context = {
         "name": "Kumanoit",
         "title": "Software Engineer",
-        "vehicles": ['Royal Enfield', "Lamborghini", "Audi"]
+        "vehicles": ['Royal Enfield', "Lamborghini", "Audi", 2343],
     }
     return render(request, "home.html", context)
