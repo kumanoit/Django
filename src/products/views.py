@@ -58,3 +58,15 @@ def product_creation_raw_django_form(request):
     }
     return render(request, "products/create_product_raw_form.html", context)
 
+# to create product with default initial
+def product_creation_initial_form(request):
+    initial_data = {
+        "title":"This is default title"
+    }
+    form = ProductForm(request.POST or None, initial = initial_data)
+    if form.is_valid():
+        form.save()
+    context = {
+        'form' : form
+    }
+    return render(request, "products/create_product_initial_data.html", context)
